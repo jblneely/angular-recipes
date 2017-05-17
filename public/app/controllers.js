@@ -1,50 +1,12 @@
 angular.module('TennisballCtrls', ['TennisballServices'])
-    .controller('HomeCtrl', ['$scope', 'Tennisball', function($scope, Tennisball) {
-        $scope.rtennisballs = [];
+    .controller('HomeCtrl', ['$scope', function($scope) {
 
-        Tennisball.query(function success(data) {
-            $scope.tennisballs = data;
-        }, function error(data) {
-            console.log(data);
-        });
-
-        $scope.deleteTennisball = function(id, tennisballsIdx) {
-            Tennisball.delete({ id: id }, function success(data) {
-                $scope.tennisballs.splice(tennisballsIdx, 1);
-            }, function error(data) {
-                console.log(data);
-            });
-        };
     }])
-    .controller('ShowCtrl', ['$scope', '$stateParams', 'Tennisball', function($scope, $stateParams, Tennisball) {
-        $scope.tennisball = {};
 
-        Tennisball.get({ id: $stateParams.id }, function success(data) {
-            $scope.tennisball = data;
-        }, function error(data) {
-            console.log(data);
-        });
-    }])
-    .controller('NewCtrl', ['$scope', '$location', 'Tennisball', function($scope, $location, Tennisball) {
-        $scope.tennisball = {
-            title: '',
-            description: '',
-            image: ''
-        };
-
-        $scope.createTennisball = function() {
-            Tennisball.save($scope.tennisball, function success(data) {
-                $location.path('/');
-            }, function error(data) {
-                console.log(data);
-            });
-        };
-    }])
-    .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
+.controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
         $scope.isLoggedIn = function() {
             return Auth.isLoggedIn();
         }
-
         $scope.logout = function() {
             Auth.removeToken();
         };

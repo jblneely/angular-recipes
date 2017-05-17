@@ -1,8 +1,6 @@
 angular.module('TennisballServices', ['ngResource'])
-    .factory('Tennisball', ['$resource', function($resource) {
-        return $resource('/api/tennisballs/:id');
-    }])
-    .factory('Auth', ['$window', function($window) {
+
+.factory('Auth', ['$window', function($window) {
         return {
             saveToken: function(token) {
                 $window.localStorage['secrettennisballs-token'] = token;

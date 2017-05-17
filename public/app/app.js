@@ -13,16 +13,6 @@ app.config([
                     templateUrl: 'app/views/tennisballs.html',
                     controller: 'HomeCtrl'
                 })
-                .state('newTennisball', {
-                    url: '/tennisballs/new',
-                    templateUrl: 'app/views/newTennisball.html',
-                    controller: 'NewCtrl'
-                })
-                .state('tennisballShow', {
-                    url: '/tennisballs/:id',
-                    templateUrl: 'app/views/showTennisball.html',
-                    controller: 'ShowCtrl'
-                })
                 .state('signup', {
                     url: '/signup',
                     templateUrl: 'app/views/userSignup.html',
