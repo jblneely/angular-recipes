@@ -1,4 +1,4 @@
-# Angular Recipes
+# Angular Tennisballs
 
 ## Getting Started
 

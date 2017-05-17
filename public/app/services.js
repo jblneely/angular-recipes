@@ -1,17 +1,17 @@
-angular.module('RecipeServices', ['ngResource'])
-    .factory('Recipe', ['$resource', function($resource) {
-        return $resource('/api/recipes/:id');
+angular.module('TennisballServices', ['ngResource'])
+    .factory('Tennisball', ['$resource', function($resource) {
+        return $resource('/api/tennisballs/:id');
     }])
     .factory('Auth', ['$window', function($window) {
         return {
             saveToken: function(token) {
-                $window.localStorage['secretrecipes-token'] = token;
+                $window.localStorage['secrettennisballs-token'] = token;
             },
             getToken: function() {
-                return $window.localStorage['secretrecipes-token'];
+                return $window.localStorage['secrettennisballs-token'];
             },
             removeToken: function() {
-                $window.localStorage.removeItem('secretrecipes-token')
+                $window.localStorage.removeItem('secrettennisballs-token')
             },
             isLoggedIn: function() {
                 return this.getToken() ? true : false;

@@ -1,4 +1,4 @@
-var app = angular.module('RecipeApp', ['ui.router', 'RecipeCtrls']);
+var app = angular.module('TennisballApp', ['ui.router', 'TennisballCtrls']);
 
 app.config([
         '$stateProvider',
@@ -10,17 +10,17 @@ app.config([
             $stateProvider
                 .state('home', {
                     url: '/',
-                    templateUrl: 'app/views/recipes.html',
+                    templateUrl: 'app/views/tennisballs.html',
                     controller: 'HomeCtrl'
                 })
-                .state('newRecipe', {
-                    url: '/recipes/new',
-                    templateUrl: 'app/views/newRecipe.html',
+                .state('newTennisball', {
+                    url: '/tennisballs/new',
+                    templateUrl: 'app/views/newTennisball.html',
                     controller: 'NewCtrl'
                 })
-                .state('recipeShow', {
-                    url: '/recipes/:id',
-                    templateUrl: 'app/views/showRecipe.html',
+                .state('tennisballShow', {
+                    url: '/tennisballs/:id',
+                    templateUrl: 'app/views/showTennisball.html',
                     controller: 'ShowCtrl'
                 })
                 .state('signup', {

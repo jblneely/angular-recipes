@@ -1,39 +1,39 @@
-angular.module('RecipeCtrls', ['RecipeServices'])
-    .controller('HomeCtrl', ['$scope', 'Recipe', function($scope, Recipe) {
-        $scope.recipes = [];
+angular.module('TennisballCtrls', ['TennisballServices'])
+    .controller('HomeCtrl', ['$scope', 'Tennisball', function($scope, Tennisball) {
+        $scope.rtennisballs = [];
 
-        Recipe.query(function success(data) {
-            $scope.recipes = data;
+        Tennisball.query(function success(data) {
+            $scope.tennisballs = data;
         }, function error(data) {
             console.log(data);
         });
 
-        $scope.deleteRecipe = function(id, recipesIdx) {
-            Recipe.delete({ id: id }, function success(data) {
-                $scope.recipes.splice(recipesIdx, 1);
+        $scope.deleteTennisball = function(id, tennisballsIdx) {
+            Tennisball.delete({ id: id }, function success(data) {
+                $scope.tennisballs.splice(tennisballsIdx, 1);
             }, function error(data) {
                 console.log(data);
             });
         };
     }])
-    .controller('ShowCtrl', ['$scope', '$stateParams', 'Recipe', function($scope, $stateParams, Recipe) {
-        $scope.recipe = {};
+    .controller('ShowCtrl', ['$scope', '$stateParams', 'Tennisball', function($scope, $stateParams, Tennisball) {
+        $scope.tennisball = {};
 
-        Recipe.get({ id: $stateParams.id }, function success(data) {
-            $scope.recipe = data;
+        Tennisball.get({ id: $stateParams.id }, function success(data) {
+            $scope.tennisball = data;
         }, function error(data) {
             console.log(data);
         });
     }])
-    .controller('NewCtrl', ['$scope', '$location', 'Recipe', function($scope, $location, Recipe) {
-        $scope.recipe = {
+    .controller('NewCtrl', ['$scope', '$location', 'Tennisball', function($scope, $location, Tennisball) {
+        $scope.tennisball = {
             title: '',
             description: '',
             image: ''
         };
 
-        $scope.createRecipe = function() {
-            Recipe.save($scope.recipe, function success(data) {
+        $scope.createTennisball = function() {
+            Tennisball.save($scope.tennisball, function success(data) {
                 $location.path('/');
             }, function error(data) {
                 console.log(data);
